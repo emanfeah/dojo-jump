@@ -11,7 +11,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'sudo docker build -t emanfeah/dojo-jump:latest .'
+				sh 'docker build -t emanfeah/dojo-jump:latest .'
 			}
 		}
 
@@ -25,14 +25,14 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'sudo docker push emanfeah/dojo-jump:latest'
+				sh 'docker push emanfeah/dojo-jump:latest'
 			}
 		}
 	}
 
 	post {
 		always {
-			sh 'sudo docker logout'
+			sh 'docker logout'
 		}
 	}
 
